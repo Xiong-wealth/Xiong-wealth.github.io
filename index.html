@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <!-- EDIT: page title shown in the browser tab -->
+  <title>齐乙亿灵 · Home</title>
+  <style>
+    :root {
+      --bg: #fafafa;
+      --card: #ffffff;
+      --text: #1f2937;
+      --muted: #6b7280;
+      --accent: #4f46e5;
+      --accent-soft: #eef2ff;
+      --border: #e5e7eb;
+      --radius: 14px;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+        "Helvetica Neue", "PingFang SC", "Microsoft YaHei", sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.7;
+    }
+
+    .container {
+      max-width: 860px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    /* ---------- Header ---------- */
+    header {
+      background: var(--card);
+      border-bottom: 1px solid var(--border);
+      position: sticky;
+      top: 0;
+      z-index: 10;
+    }
+
+    nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 16px 0;
+    }
+
+    .logo {
+      font-weight: 700;
+      font-size: 1.05rem;
+      color: var(--text);
+      text-decoration: none;
+    }
+
+    .nav-links a {
+      color: var(--muted);
+      text-decoration: none;
+      margin-left: 22px;
+      font-size: 0.95rem;
+      transition: color 0.2s;
+    }
+
+    .nav-links a:hover { color: var(--accent); }
+
+    /* ---------- Hero ---------- */
+    .hero {
+      text-align: center;
+      padding: 88px 0 64px;
+    }
+
+    .avatar {
+      width: 96px;
+      height: 96px;
+      border-radius: 50%;
+      background: var(--accent-soft);
+      color: var(--accent);
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 2rem;
+      font-weight: 700;
+      margin-bottom: 20px;
+    }
+
+    .hero h1 {
+      font-size: 2.4rem;
+      letter-spacing: -0.02em;
+      margin-bottom: 12px;
+    }
+
+    .hero p {
+      color: var(--muted);
+      font-size: 1.1rem;
+      max-width: 560px;
+      margin: 0 auto;
+    }
+
+    /* ---------- Sections ---------- */
+    section { padding: 40px 0; }
+
+    h2 {
+      font-size: 1.4rem;
+      margin-bottom: 18px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    h2::after {
+      content: "";
+      flex: 1;
+      height: 1px;
+      background: var(--border);
+    }
+
+    .card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 24px;
+    }
+
+    /* ---------- Tags / chips ---------- */
+    .tags { display: flex; flex-wrap: wrap; gap: 10px; }
+
+    .tag {
+      background: var(--accent-soft);
+      color: var(--accent);
+      border-radius: 999px;
+      padding: 6px 16px;
+      font-size: 0.9rem;
+      font-weight: 500;
+    }
+
+    .chip {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 999px;
+      padding: 6px 16px;
+      font-size: 0.9rem;
+      color: var(--text);
+    }
+
+    /* ---------- Projects ---------- */
+    .projects {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 16px;
+    }
+
+    .project {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 20px;
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+
+    .project:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.06);
+    }
+
+    .project h3 { font-size: 1.05rem; margin-bottom: 8px; }
+    .project p { color: var(--muted); font-size: 0.92rem; }
+
+    /* ---------- Contact ---------- */
+    .contact-links { display: flex; flex-wrap: wrap; gap: 12px; }
+
+    .btn {
+      display: inline-block;
+      padding: 10px 22px;
+      border-radius: 10px;
+      text-decoration: none;
+      font-size: 0.95rem;
+      font-weight: 500;
+      border: 1px solid var(--border);
+      color: var(--text);
+      background: var(--card);
+      transition: all 0.2s;
+    }
+
+    .btn:hover { border-color: var(--accent); color: var(--accent); }
+
+    .btn.primary {
+      background: var(--accent);
+      border-color: var(--accent);
+      color: #fff;
+    }
+
+    .btn.primary:hover { opacity: 0.9; color: #fff; }
+
+    /* ---------- Footer ---------- */
+    footer {
+      border-top: 1px solid var(--border);
+      margin-top: 40px;
+      padding: 28px 0 40px;
+      text-align: center;
+      color: var(--muted);
+      font-size: 0.85rem;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="container">
+      <nav>
+        <!-- EDIT: your display name in the top bar -->
+        <a class="logo" href="#">齐乙亿灵</a>
+        <div class="nav-links">
+          <a href="#about">About</a>
+          <a href="#skills">Skills</a>
+          <a href="#projects">Projects</a>
+          <a href="#hobbies">Hobbies</a>
+          <a href="#contact">Contact</a>
+        </div>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container">
+    <!-- ============ HERO ============ -->
+    <section class="hero">
+      <!-- EDIT: the avatar shows the first character of your name -->
+      <div class="avatar">齐</div>
+      <!-- EDIT: greeting line -->
+      <h1>Hi, I'm 齐乙亿灵 👋</h1>
+      <!-- EDIT: one-sentence tagline about yourself -->
+      <p>A student exploring AI agents and vibe coding — this is my little corner on the web.</p>
+    </section>
+
+    <!-- ============ ABOUT ============ -->
+    <section id="about">
+      <h2>About Me</h2>
+      <div class="card">
+        <!-- EDIT: replace with your own introduction. Share as much or as little as you wish. -->
+        <p>
+          I'm a student learning to build agentic AI products. I'm curious about
+          how AI agents work under the hood — and how to turn ideas into real,
+          usable products with them. Right now I'm getting hands-on with Git,
+          GitHub, and my first AI-assisted coding workflows.
+        </p>
+      </div>
+    </section>
+
+    <!-- ============ SKILLS ============ -->
+    <section id="skills">
+      <h2>Skills</h2>
+      <!-- EDIT: add or remove tags to match what you actually know or are learning -->
+      <div class="tags">
+        <span class="tag">Git &amp; GitHub</span>
+        <span class="tag">HTML &amp; CSS</span>
+        <span class="tag">Vibe Coding</span>
+        <span class="tag">AI-Assisted Workflows</span>
+        <span class="tag">Learning Python</span>
+      </div>
+    </section>
+
+    <!-- ============ PROJECTS ============ -->
+    <section id="projects">
+      <h2>Projects</h2>
+      <div class="projects">
+        <div class="project">
+          <!-- EDIT: project card 1 -->
+          <h3>🏠 This Homepage</h3>
+          <p>My personal website, built with plain HTML &amp; CSS and published with GitHub Pages.</p>
+        </div>
+        <div class="project">
+          <!-- EDIT: project card 2 -->
+          <h3>🤖 First AI Agent</h3>
+          <p>Coming soon — my first hands-on agent project from the course.</p>
+        </div>
+        <div class="project">
+          <!-- EDIT: project card 3 -->
+          <h3>✨ More to come</h3>
+          <p>This space will grow as I keep building and learning.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ HOBBIES ============ -->
+    <section id="hobbies">
+      <h2>Hobbies</h2>
+      <!-- EDIT: replace with your real hobbies -->
+      <div class="tags">
+        <span class="chip">🎮 Games</span>
+        <span class="chip">🎵 Music</span>
+        <span class="chip">📚 Reading</span>
+        <span class="chip">🚶 Walking</span>
+      </div>
+    </section>
+
+    <!-- ============ CONTACT ============ -->
+    <section id="contact">
+      <h2>Contact</h2>
+      <div class="contact-links">
+        <a class="btn primary" href="https://github.com/Xiong-wealth" target="_blank" rel="noopener">GitHub · Xiong-wealth</a>
+        <!-- EDIT (optional): uncomment and add an email you are comfortable sharing publicly.
+             Tip: you can use GitHub's private noreply email instead of your real one.
+        <a class="btn" href="mailto:your-email@example.com">Email</a>
+        -->
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container">
+      <!-- EDIT: footer line -->
+      <p>© 2025 齐乙亿灵 · Built with plain HTML &amp; CSS · Published with GitHub Pages</p>
+    </div>
+  </footer>
+</body>
+</html>
